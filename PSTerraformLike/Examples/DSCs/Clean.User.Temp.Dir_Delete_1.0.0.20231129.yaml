@@ -1,0 +1,28 @@
+Config:
+  Description: ""
+  Method: ""
+  Version: ""
+  Run:
+    OnProductType: "1"
+    OnBuild: .*
+    OncpuArch: AMD64
+    OnOSName: .*Windows.*
+  Author: ""
+  Title: ""
+Testing:
+  LoopTimer: 0
+  RemediationTest: |-
+    Write-Host "Remediation Test"
+                            Write-Host "Remediation Test2"
+  LoopCount: 0
+  PesterTest: |-
+    Write-Host "Pester Test"
+                            Write-Host "Pester Test2"
+Actions:
+- Write-Host:
+    ForegroundColor: None
+    Object: None
+    BackgroundColor: None
+    Separator: None
+    NoNewline: "False"
+

@@ -1,0 +1,30 @@
+Config:
+  Description: "Enable Windows Remote Management"
+  Method: "Enable"
+  Version: "1.0.0.20231129"
+  Run:
+    OnProductType: "1"
+    OnBuild: .*
+    OncpuArch: AMD64
+    OnOSName: .*Windows.*
+  Author: "Michael Arroyo"
+  Title: "Windows.Remote.Management"
+Testing:
+  LoopTimer: 0
+  RemediationTest: |-
+    If ($(Get-Service -name winrm).Status -eq 'Running') {
+      $true
+    } else {
+      $false
+    }
+  LoopCount: 0
+  PesterTest: |-
+    Describe "WinRM Service Status" {
+      $CurWinRmStatus = $(Get-Service -name winrm).Status
+      It "WinRM is [Running]" {
+        $CurWinRmStatus | should -be 'Running'
+      }
+    }
+Actions:
+  - Start-Service:
+      Name: WinRM
