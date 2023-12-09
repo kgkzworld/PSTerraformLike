@@ -1,0 +1,13 @@
+Config:
+  Description: Development Client Services RunBook
+  Version: 1.0.0.20231208
+  Run:
+    OnProductType: ".*"
+    OnBuild: .*
+    OncpuArch: AMD64
+    OnOSName: .*Windows.*
+  Author: Michael Arroyo
+  Title: DevClient_Services_RunBook
+Actions:
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Services\WinRME_1.0.0.20231129.yml

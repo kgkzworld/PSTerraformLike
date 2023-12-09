@@ -1,0 +1,24 @@
+Config:
+  Description: Development Client Software RunBook
+  Version: 1.0.0.20231208
+  Run:
+    OnProductType: ".*"
+    OnBuild: .*
+    OncpuArch: AMD64
+    OnOSName: .*Windows.*
+  Author: Michael Arroyo
+  Title: DevClient_Software_RunBook
+Actions:
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Software\Chocolatey\Chocolatey_Latest_Installed_1.0.0.20231207.yml
+    Remediate: true
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Software\NotepadPlusPlus\NotepadPlusPlus_Latest_Installed_1.0.0.20231207.yml
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Software\Git\Git_Latest_Installed_1.0.0.20231207.yml
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Software\7Zip\7Zip_Latest_Installed_1.0.0.20231207.yml
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Software\LockHunter\LockHunter_Latest_Installed_1.0.0.20231207.yml
+- Invoke-PSTerraformLikeDSC:
+    Path: .\Software\WinMerge\WinMerge_Latest_Installed_1.0.0.20231207.yml

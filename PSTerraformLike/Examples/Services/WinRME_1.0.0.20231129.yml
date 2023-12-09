@@ -3,7 +3,7 @@ Config:
   Method: "Enable"
   Version: "1.0.0.20231129"
   Run:
-    OnProductType: "1"
+    OnProductType: ".*"
     OnBuild: .*
     OncpuArch: AMD64
     OnOSName: .*Windows.*

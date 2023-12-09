@@ -1,0 +1,44 @@
+Config:
+  Description: Check to see if the Chocolatey Agent is installed
+  Method: Installed
+  Version: 1.0.0.20231207
+  Run:
+    OnProductType: ".*"
+    OnBuild: .*
+    OncpuArch: AMD64
+    OnOSName: .*Windows.*
+  Author: Michael Arroyo
+  Title: Chocolatey_Latest
+Testing:
+  LoopTimer: 0
+  RemediationTest: |-
+    $info = Invoke-Expression -Command 'Choco'
+    If ( $info -match "Please run \'choco \-\?\' or \'choco \<command\> \-\?\' for help menu\." ) {
+        return $true
+    } Else {
+        return $false
+    }
+  LoopCount: 0
+  PesterTest: |-
+    Describe "Testing Chocolatey [Install]" {
+        It "Chocolatey [Installed]" {
+            $info = Invoke-Expression -Command 'Choco'
+            $info[1] | should -Match "Please run \'choco \-\?\' or \'choco \<command\> \-\?\' for help menu\."
+        }
+    }
+Actions:
+- Set-ExecutionPolicy:
+    Scope: Process
+    Force: $true
+    ExecutionPolicy: Bypass
+- Invoke-command:
+    ScriptBlock: "{[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072}"
+- Invoke-WebRequest:
+    OutFile: C:\Windows\temp\chocoinstall.ps1
+    Uri: 'https://community.chocolatey.org/install.ps1'
+- Invoke-Expression:
+    Command: C:\Windows\temp\chocoinstall.ps1
+- Remove-Item:
+    Confirm: $false
+    Path: C:\Windows\temp\chocoinstall.ps1
+    Force: $true

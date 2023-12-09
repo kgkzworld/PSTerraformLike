@@ -1,0 +1,17 @@
+Config:
+  Description: Development Client Build RunBook
+  Version: 1.0.0.20231208
+  Run:
+    OnProductType: ".*"
+    OnBuild: .*
+    OncpuArch: AMD64
+    OnOSName: .*Windows.*
+  Author: Michael Arroyo
+  Title: DevClient_RunBook
+Actions:
+- Invoke-PSTerraformLikeRunBook:
+    Path: .\DevClient_Software_RunBook_1.0.0.20231208.yml
+    Remediate: true
+- Invoke-PSTerraformLikeRunBook:
+    Path: .\DevClient_Services_RunBook_1.0.0.20231208.yml
+    Remediate: true
