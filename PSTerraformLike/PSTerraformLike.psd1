@@ -125,13 +125,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('Desired State Configuration','DSC','Terraforms','Terraform','YAML','YML','Configuration Management','CM','Infrastructure as Code','IaC','DevOps','Automation','Security','SecOps','Compliance','Audit','Change Management','Change Detection','Change Tracking','Change Remediation','Remediation','System Checks','System Verification','System Validation','System Compliance','System Audit','System Remediation','System Hardening','System Configuration','System Configuration Management','System Configuration Automation','System Configuration Validation','System Configuration Verification','System Configuration Compliance','System Configuration Audit','System Configuration Remediation','System Configuration Hardening','System Configuration Change Management','System Configuration Change Detection','System Configuration Change Tracking','System Configuration Change Remediation','System Configuration Remediation','System Configuration System Checks','System Configuration System Verification','System Configuration System Validation','System Configuration System Compliance','System Configuration System Audit','System Configuration System Remediation','System Configuration System Hardening','System Configuration System Change Management','System Configuration System Change Detection','System Configuration System Change Tracking','System Configuration System Change Remediation','System Configuration System Remediation','System Configuration System Hardening')
 
         # A URL to the license for this module.
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/kgkzworld/PSTerraformLike'
 
         # A URL to an icon representing this module.
         # IconUri = ''
