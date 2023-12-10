@@ -170,7 +170,7 @@ Function Invoke-PSTerraformLikeRunBook
         • [Latest Author]
             o Michael Arroyo
         • [Latest Build Version]
-            o 1.0.0.20231129 [XX = Major (.) XX = Minor (.) XX = Patch (.) XX = Build Date (YYYYMMDD)]
+            o 1.0.1.20231210 [XX = Major (.) XX = Minor (.) XX = Patch (.) XX = Build Date (YYYYMMDD)]
         • [Comments]
             o
         • [PowerShell Compatibility]
@@ -189,6 +189,10 @@ Function Invoke-PSTerraformLikeRunBook
 ~ Build Version Details "Moved from main help.  There is a Char limit and PSHelp could not read all the information correctly":
         o 1.0.0.20231129
             [Michael Arroyo] Initial Post
+        o 1.0.1.20231210
+            [Michael Arroyo] Bug fix: Fix Runbooks Remediate to update the action parameter to $true even if the parameter is not defined.
+                This will allow for Runbooks to run checks and not force a remediation.  If the parameter is set, the value is defined or overwritten
+                and remediation actions are processed.
 #>
 #endregion Build Notes
     [cmdletbinding()]
@@ -365,7 +369,7 @@ Function Invoke-PSTerraformLikeRunBook
                     $parameters = $property[$($command)]
                     $parameterUpdate = $parameters.Clone()
 
-                    If ( $command  -match 'Invoke-PSTerraformLikeDSC|Invoke-TFLRB|TFLIRB' ) {
+                    If ( $command  -match 'Invoke-PSTerraformLikeDSC|Invoke-TFLDSC|TFLIDSC|Invoke-PSTerraformLikeRunBook|Invoke-TFLRB|TFLIRB') {
                         Switch ( $Null ) {
                             { $Remediate } {
                                 $parameterUpdate.Remediate = $true

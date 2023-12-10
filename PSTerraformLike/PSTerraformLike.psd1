@@ -12,7 +12,7 @@
 RootModule = 'PSTerraformLike.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0.20231129'
+ModuleVersion = '1.0.1.20231210'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -146,7 +146,7 @@ PrivateData = @{
         # RequireLicenseAcceptance = $false
 
         # External dependent modules of this module
-        # ExternalModuleDependencies = @()
+        ExternalModuleDependencies = @(@{ModuleName="powershell-yaml"; RequiredVersion="0.4.7"; GUID="6a75a662-7f53-425a-9777-ee61284407da"},@{ModuleName="Pester"; RequiredVersion="4.10.1"; GUID="a699dea5-2c73-4616-a270-1f7abb777e71"})
 
     } # End of PSData hashtable
 

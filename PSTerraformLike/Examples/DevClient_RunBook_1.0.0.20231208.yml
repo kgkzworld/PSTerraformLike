@@ -11,7 +11,5 @@ Config:
 Actions:
 - Invoke-PSTerraformLikeRunBook:
     Path: .\DevClient_Software_RunBook_1.0.0.20231208.yml
-    Remediate: true
 - Invoke-PSTerraformLikeRunBook:
     Path: .\DevClient_Services_RunBook_1.0.0.20231208.yml
-    Remediate: true
